@@ -185,6 +185,7 @@ const AdminDashboard = () => {
           <p className="text-sm mb-3 text-red-500 flex items-center">
             <FaList className="mr-2" /> Danh sách sinh viên
           </p>
+          <div className="flex flex-wrap gap-2">
           <button
             onClick={() =>
               sendDataToGoogleSheets({
@@ -207,6 +208,7 @@ const AdminDashboard = () => {
           >
             Tải File Excel
           </a>
+          </div>
           <dialog id="my_modal_2" className="modal">
             <div className="modal-box bg-black">
               <h3 className="font-bold text-lg text-white">
