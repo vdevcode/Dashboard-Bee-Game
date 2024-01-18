@@ -38,7 +38,8 @@ const AdminDashboard = () => {
       setLoading(true);
 
       const response = await axios.get(
-        "http://localhost:8083/api/user/getDataForAdmin",
+        // "http://localhost:8083/api/user/getDataForAdmin",
+        "https://bee-server-api.vercel.app/api/user/getDataForAdmin",
         {
           params: searchParams,
         }
