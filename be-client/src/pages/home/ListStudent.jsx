@@ -27,10 +27,11 @@ const AdminDashboard = () => {
   });
 
   useEffect(() => {
+    // Khởi tạo userData trước khi fetch
     setUserData([]);
-  }, [searchParams]);
 
-  console.log(setUserData);
+    fetchData(); // Gọi fetchData để đảm bảo dữ liệu mới nhất
+  }, [searchParams]);
 
   const fetchData = async () => {
     try {
@@ -85,22 +86,21 @@ const AdminDashboard = () => {
     setSortOption(e.target.value);
   };
 
+
   const sendDataToGoogleSheets = async (data) => {
     try {
-      const response = await axios.post(
-        "https://script.google.com/macros/s/AKfycbzCdDZ7T5o2_3kY3bVNNgHKajOdv471DzWdRICIuiz3GA-igCKDPKr3yl0Sfpwo-LoJxQ/exec",
-        data,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await axios.post('https://script.google.com/macros/s/AKfycbzCdDZ7T5o2_3kY3bVNNgHKajOdv471DzWdRICIuiz3GA-igCKDPKr3yl0Sfpwo-LoJxQ/exec', data, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
       console.log(response.data); // In thông báo từ script (Success)
     } catch (error) {
-      console.error("Error sending data to Google Sheets:", error);
+      console.error('Error sending data to Google Sheets:', error);
     }
   };
+  
+  
 
   return (
     <div className="bg-banner-login bg-center bg-no-repeat bg-cover max-w-screen-2xl py-4 container mx-auto px-4 lg:px-24 ">
@@ -190,8 +190,8 @@ const AdminDashboard = () => {
                 name: searchParams.name,
                 address: searchParams.address,
                 phone: searchParams.phone,
-                email: searchParams.email,
-                majors: searchParams.major,
+                email: searchParams.email, 
+                majors: searchParams.major, 
               })
             }
             className="my-4 text-white mt-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
@@ -285,6 +285,7 @@ const AdminDashboard = () => {
                 Trang Trước
               </button>
 
+              {/* Ví dụ về nút "Trang Sau" */}
               <button
                 onClick={() => handlePageChange(searchParams.page + 1)}
                 className="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900"
