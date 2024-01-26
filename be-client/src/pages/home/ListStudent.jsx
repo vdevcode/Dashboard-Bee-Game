@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { FaFilter } from "react-icons/fa";
 import { FaList } from "react-icons/fa";
 import axios from "axios";
+import {Link} from "react-router-dom"
 
 import ListTable from "./ListTable";
 // import { Table } from 'flowbite-react';
@@ -38,7 +39,7 @@ const AdminDashboard = () => {
       setLoading(true);
 
       const response = await axios.get(
-        // "http://localhost:8083/api/user/getDataForAdmin",
+        // "http://localhost:8083/api/user/getDataForAdmin" server cu,
         "https://dashboard-server-bee.vercel.app/api/user/getDataForAdmin",
         {
           params: searchParams,
@@ -87,21 +88,22 @@ const AdminDashboard = () => {
     setSortOption(e.target.value);
   };
 
-
   const sendDataToGoogleSheets = async (data) => {
     try {
-      const response = await axios.post('https://script.google.com/macros/s/AKfycbzCdDZ7T5o2_3kY3bVNNgHKajOdv471DzWdRICIuiz3GA-igCKDPKr3yl0Sfpwo-LoJxQ/exec', data, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      console.log(response.data); // In thông báo từ script (Success)
+      const response = await axios.post(
+        "https://script.google.com/macros/s/AKfycbzCdDZ7T5o2_3kY3bVNNgHKajOdv471DzWdRICIuiz3GA-igCKDPKr3yl0Sfpwo-LoJxQ/exec",
+        data,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log(response.data);
     } catch (error) {
-      console.error('Error sending data to Google Sheets:', error);
+      console.error("Error sending data to Google Sheets:", error);
     }
   };
-  
-  
 
   return (
     <div className="bg-banner-login bg-center bg-no-repeat bg-cover max-w-screen-2xl py-4 container mx-auto px-4 lg:px-24 ">
@@ -186,28 +188,31 @@ const AdminDashboard = () => {
             <FaList className="mr-2" /> Danh sách sinh viên
           </p>
           <div className="flex flex-wrap gap-2">
-          <button
-            onClick={() =>
-              sendDataToGoogleSheets({
-                name: searchParams.name,
-                address: searchParams.address,
-                phone: searchParams.phone,
-                email: searchParams.email, 
-                majors: searchParams.major, 
-              })
-            }
-            className="my-4 h-[40px] text-white mt-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          >
-            Đẩy dữ liệu lên Google Sheets
-          </button>
-
-          <a
-            href="http://167.71.196.197/api/user/download"
-            onClick={() => document.getElementById("my_modal_2").showModal()}
-            className="mb-2 h-[40px] ml-0 md:ml-4 text-white mt-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          >
-            Tải File Excel
-          </a>
+            <button
+              onClick={() =>
+                sendDataToGoogleSheets({
+                  name: searchParams.name,
+                  address: searchParams.address,
+                  phone: searchParams.phone,
+                  email: searchParams.email,
+                  majors: searchParams.major,
+                })
+              }
+              className="my-4 h-[40px] text-white mt-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              Đẩy dữ liệu lên Google Sheets
+            </button>
+            <Link to='/statistical' >
+            <button className="my-4 h-[40px] text-white mt-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              Xem trang thống kê
+            </button></Link>
+            <a
+              href="https://dashboard-server-bee.vercel.app/api/user/download"
+              onClick={() => document.getElementById("my_modal_2").showModal()}
+              className="mb-2 h-[40px] ml-0 md:ml-4 text-white mt-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              Tải File Excel
+            </a>
           </div>
           <dialog id="my_modal_2" className="modal">
             <div className="modal-box bg-black">
@@ -223,8 +228,8 @@ const AdminDashboard = () => {
         </div>
 
         <p className="bg-white inline-block p-2 mb-2 mt-6 rounded-lg">
-          Trang {currentPage} / {totalPages}, số lượng sinh viên:{" "}
-          {showStudentsLimit}
+          Trang {currentPage} / {Math.round(showStudentsLimit / 20)}, số lượng
+          học sinh: {showStudentsLimit}
         </p>
 
         {loading ? (

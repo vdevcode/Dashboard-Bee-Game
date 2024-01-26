@@ -35,7 +35,7 @@ const router = createBrowserRouter([
           element: <SaveUserExel/>
         },
         {
-          path: "/table",
+          path: "/statistical",
           element: <ListTable/>
         }
         
