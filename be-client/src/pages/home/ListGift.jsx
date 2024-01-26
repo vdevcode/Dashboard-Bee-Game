@@ -47,7 +47,7 @@ const ListGift = () => {
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
-          <thead>
+          <thead className=" uppercase  bg-yellow-300 mb-3" align="center">
             <tr>
               <th>Tên</th>
               <th>Số điện thoại</th>

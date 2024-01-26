@@ -39,7 +39,7 @@ const SaveUserExel = ({ formData }) => {
     <div className="px-4 py-4">
       <button onClick={handleExportExcel}>Xuất file Excel</button>
       <button className="mb-4 block text-white mt-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-        <a href="http://167.71.196.197/api/user/download">
+        <a href="https://dashboard-server-bee.vercel.app/api/user/download">
           Lưu thành File Excel
         </a>
       </button>
