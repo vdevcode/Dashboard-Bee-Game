@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from "react";
@@ -21,14 +22,12 @@ const ListTable = () => {
 
       const response = await axios.get(
         // "http://localhost:8083/api/user/getDataForAdmin" server cu,
-        "https://dashboard-server-bee.vercel.app/api/user/ranking",
-        {
-         data
-        }
+        "https://dashboard-server-bee.vercel.app/api/user/ranking"
       );
 
       if (response.data || response.data.data) {
         setUserRaking(response.data.data);
+        console.log(response);
       } else {
         console.error(
           "Dữ liệu từ server không đúng định dạng hoặc rỗng:",
@@ -47,7 +46,40 @@ const ListTable = () => {
 
   return (
     <div className="bg-banner-login bg-center bg-no-repeat bg-cover max-w-screen-2xl py-4 container mx-auto px-4 lg:px-24">
-      {userRaking}
+      <div className="overflow-x-auto">
+        <h2 className="text-center font-medium mb-10">Trang nhận quà</h2>
+        <table className="table">
+          {/* head */}
+          <thead className="text-center">
+            <tr>
+              <th>Tên</th>
+              <th>Số điện thoại</th>
+              <th>Điểm số</th>
+              <th>Trường học</th>
+              <th>Email </th>
+              <th>Quà</th>
+              <th>Tỉnh thành</th>
+              <th>Ngày tạo</th>
+              <th>Ngày cập nhật</th>
+            </tr>
+          </thead>
+          <tbody className="text-center">
+            {userRaking.map((raking, index) => (
+              <tr className="bg-base-200 text-[.8rem]" key={index}>
+                <th>{raking.email}</th>
+                <td>{raking.phone}</td>
+                <td>{raking.highestScore}</td>
+                <td>{raking.school}</td>
+                <td>{raking.email}</td>
+                <td>Được nhận</td>
+                <td>{raking.address}</td>
+                <td>{raking.createdAt}</td>
+                <td>{raking.updatedAt}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
