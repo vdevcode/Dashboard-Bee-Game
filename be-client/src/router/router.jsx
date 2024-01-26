@@ -7,6 +7,7 @@ import Register from "../pages/authentications/Register";
 
 import SaveUserExel from "../pages/saveInfor/SaveUserExcel";
 import ListTable from "../pages/home/ListTable";
+import ListGift from "../pages/home/ListGift";
 
 
 const router = createBrowserRouter([
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
         {
           path: "/statistical",
           element: <ListTable/>
+        },
+        {
+          path: "/gift",
+          element: <ListGift/>
         }
         
       ]

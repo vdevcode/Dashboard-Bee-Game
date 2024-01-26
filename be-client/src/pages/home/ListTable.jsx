@@ -46,8 +46,9 @@ const ListTable = () => {
 
   return (
     <div className="bg-banner-login bg-center bg-no-repeat bg-cover max-w-screen-2xl py-4 container mx-auto px-4 lg:px-24">
+         <h2 className="text-center font-medium mb-10">Trang nhận quà</h2>
       <div className="overflow-x-auto">
-        <h2 className="text-center font-medium mb-10">Trang nhận quà</h2>
+     
         <table className="table">
           {/* head */}
           <thead className="text-center">

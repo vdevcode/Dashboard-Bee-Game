@@ -42,6 +42,9 @@ const Navbar = () => {
         <Link to="/statistical">Thống kê xếp hạng</Link>
       </li>
       <li>
+        <Link to="/gift">Danh sách vừa nhận quà</Link>
+      </li>
+      <li>
         <Link to="/login">Đăng nhập</Link>
       </li>
       <li>
@@ -82,7 +85,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm bg-white dropdown-content mt-3  p-2 shadow rounded-box w-52"
+            className="menu menu-sm bg-white dropdown-content mt-3  z-10 p-2 shadow rounded-box w-52"
           >
             {navItems}
           </ul>
