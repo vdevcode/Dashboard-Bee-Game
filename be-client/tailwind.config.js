@@ -8,7 +8,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'banner-login': "url('./images/backgroundLogin/bg.png')",
+        'banner-login': "url('./public/images/backgroundLogin/bg.png')",
         'footer-texture': "url('/img/footer-texture.png')",
       }
     },

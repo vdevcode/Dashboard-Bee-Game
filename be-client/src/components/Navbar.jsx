@@ -93,7 +93,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-center">
         <Link to="/" className="btn btn-ghost text-xl text-blue-500">
-          Flappy Bee
+         <img src="./public/images/logo.png" className="w-20" alt="" />
         </Link>
       </div>
       <div className="navbar-end">
