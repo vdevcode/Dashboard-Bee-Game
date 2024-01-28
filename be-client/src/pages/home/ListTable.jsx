@@ -65,7 +65,8 @@ const ListTable = () => {
               <th>Ngày cập nhật</th>
             </tr>
           </thead>
-          <tbody className="bg-white border-b text-white dark:bg-gray-800 dark:border-gray-700">
+          <tbody className=" border-b text-white bg-gray-800 border-gray-700">
+
             {userRaking.map((raking, index) => (
               <tr className="bg-base-200 text-[.8rem] text-center" key={index}>
                 <th>{index+1}</th>

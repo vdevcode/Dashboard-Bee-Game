@@ -263,7 +263,7 @@ const AdminDashboard = () => {
                 </tr>
               </thead>
               {Array.isArray(userData.data) && userData.data.length > 0 ? (
-                <tbody className="bg-white border-b text-white dark:bg-gray-800 dark:border-gray-700">
+                <tbody className=" border-b text-white bg-gray-800 border-gray-700">
                   {userData.data.map((user, index) => (
                     <tr
                       key={user._id}
