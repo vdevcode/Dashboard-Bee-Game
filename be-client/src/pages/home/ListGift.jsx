@@ -57,7 +57,7 @@ const ListGift = () => {
               <th>Ngày cập nhật</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="bg-white border-b text-white dark:bg-gray-800 dark:border-gray-700">
             {gift.map((gifts, index) => (
               <tr key={index} className="text-center">
                 <th>{index+1}</th>
