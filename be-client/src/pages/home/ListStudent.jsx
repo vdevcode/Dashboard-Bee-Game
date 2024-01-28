@@ -243,7 +243,7 @@ const AdminDashboard = () => {
             <table className="w-full text-sm text-left rtl:text-right ">
               <thead className=" uppercase  bg-yellow-300 mb-3" align="center">
                 <tr className="text-sm  text-center mb-3 ">
-                  <th>Số thứ tự</th>
+                  <th scope="col" className="px-6 py-3">Số thứ tự</th>
 
                   <th scope="col" className="px-6 py-3">
                     Họ và tên
@@ -269,7 +269,7 @@ const AdminDashboard = () => {
                       key={user._id}
                       className="text-center border border-white "
                     >
-                      <td>{index + 1}</td>
+                      <td className="px-6 py-4">{index + 1}</td>
 
                       <td className="px-6 py-4">{user.name}</td>
                       <td className="px-6 py-4">{user.address}</td>
