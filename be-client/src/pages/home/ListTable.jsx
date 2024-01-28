@@ -53,6 +53,7 @@ const ListTable = () => {
           {/* head */}
           <thead className=" uppercase  bg-yellow-300 mb-3" align="center">
             <tr>
+              <th>Số thứ tự</th>
               <th>Tên</th>
               <th>Số điện thoại</th>
               <th>Điểm số</th>
@@ -67,6 +68,7 @@ const ListTable = () => {
           <tbody className="text-center">
             {userRaking.map((raking, index) => (
               <tr className="bg-base-200 text-[.8rem]" key={index}>
+                <th>{index+1}</th>
                 <th>{raking.email}</th>
                 <td>{raking.phone}</td>
                 <td>{raking.highestScore}</td>

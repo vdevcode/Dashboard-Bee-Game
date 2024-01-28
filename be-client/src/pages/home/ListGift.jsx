@@ -49,6 +49,8 @@ const ListGift = () => {
           {/* head */}
           <thead className=" uppercase  bg-yellow-300 mb-3" align="center">
             <tr>
+            <th>Số thứ tự</th>
+
               <th>Tên</th>
               <th>Số điện thoại</th>
               <th>Quà</th>
@@ -57,7 +59,9 @@ const ListGift = () => {
           </thead>
           <tbody>
             {gift.map((gifts, index) => (
-              <tr key={index}>
+              <tr key={index} className="text-center">
+                <th>{index+1}</th>
+
                 {/* <td>{gifts.owners.length}</td> */}
                 <td>
                   {gifts.owners.length > 0

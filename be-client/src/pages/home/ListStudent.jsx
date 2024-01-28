@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { FaFilter } from "react-icons/fa";
 import { FaList } from "react-icons/fa";
 import axios from "axios";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 import ListTable from "./ListTable";
 // import { Table } from 'flowbite-react';
@@ -202,10 +202,11 @@ const AdminDashboard = () => {
             >
               Đẩy dữ liệu lên Google Sheets
             </button>
-            <Link to='/statistical' >
-            <button className="my-4 h-[40px] text-white mt-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-              Xem trang thống kê
-            </button></Link>
+            <Link to="/statistical">
+              <button className="my-4 h-[40px] text-white mt-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Xem trang thống kê
+              </button>
+            </Link>
             <a
               href="https://dashboard-server-bee.vercel.app/api/user/download"
               onClick={() => document.getElementById("my_modal_2").showModal()}
@@ -242,6 +243,8 @@ const AdminDashboard = () => {
             <table className="w-full text-sm text-left rtl:text-right ">
               <thead className=" uppercase  bg-yellow-300 mb-3" align="center">
                 <tr className="text-sm  text-center mb-3 ">
+                  <th>Số thứ tự</th>
+
                   <th scope="col" className="px-6 py-3">
                     Họ và tên
                   </th>
@@ -261,11 +264,13 @@ const AdminDashboard = () => {
               </thead>
               {Array.isArray(userData.data) && userData.data.length > 0 ? (
                 <tbody className="bg-white border-b text-white dark:bg-gray-800 dark:border-gray-700">
-                  {userData.data.map((user) => (
+                  {userData.data.map((user, index) => (
                     <tr
                       key={user._id}
                       className="text-center border border-white "
                     >
+                      <td>{index + 1}</td>
+
                       <td className="px-6 py-4">{user.name}</td>
                       <td className="px-6 py-4">{user.address}</td>
                       <td className="px-6 py-4">{user.phone}</td>
