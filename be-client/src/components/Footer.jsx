@@ -9,7 +9,7 @@ const Footer = () => {
 
         <p className="text-black">
             Bản quyền thuộc về
-           FPT POLYTECHNIC
+           FPT UNIVERSITY
         </p>
       </aside>
       <nav>
