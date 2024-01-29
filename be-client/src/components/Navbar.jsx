@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Navigate, useNavigate } from "react-router-dom";
+import { HiViewGrid } from "react-icons/hi";
 
 const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -68,20 +69,7 @@ const Navbar = () => {
             role="button"
             className="btn  btn-ghost btn-circle w-[1.5rem]"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h7"
-              />
-            </svg>
+            <HiViewGrid className="text-[2rem]"/>
           </div>
           <ul
             tabIndex={0}
@@ -93,11 +81,12 @@ const Navbar = () => {
       </div>
       <div className="navbar-center">
         <Link to="/" className="btn btn-ghost text-xl text-blue-500">
-         <img src="./public/images/logo.png" className="w-20" alt="" />
+         {/* <img src="./public/images/logo.png" className="w-20" alt="" /> */}
+         Flappy Bee
         </Link>
       </div>
       <div className="navbar-end">
-        <button className="btn btn-ghost  btn-circle">
+        <button className="btn btn-ghost  btn-circle mr-0">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5 "
@@ -113,7 +102,7 @@ const Navbar = () => {
             />
           </svg>
         </button>
-        <button className="btn btn-ghost btn-circle">
+        <button className="btn btn-ghost btn-circle mr-0 pr-0">
           <div className="indicator">
             <svg
               xmlns="http://www.w3.org/2000/svg"
